@@ -23,6 +23,7 @@ alias ytdl="yt-dlp"
 alias pldl="yt-dlp -o '~/video/ytdl/%(uploader)s_%(playlist)s/%(playlist_index)s_%(title)s.%(ext)s'"
 alias svtdl="svtplay-dl"
 alias q="exit"
+alias cm="chezmoi"
 
 # GIT
 alias gits="git status"
