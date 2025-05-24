@@ -1,0 +1,47 @@
+# GLOBAL PROPERTIES
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=/usr/lib/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[memory-sh]
+command=~/.config/i3blocks/memory
+color=#fe640b
+interval=30
+
+[disk-sh]
+command=~/.config/i3blocks/hdd
+color=#d20f39
+interval=30
+
+[cpu-load]
+label=  
+command=uptime | awk -F'[ ,]+' '{print "Up", $4 "h, " $9 " | " $10 " | " $11}'
+color=#04a5e5
+interval=10
+
+[get-ip]
+label=   
+command=~/.config/i3blocks/lan
+color=#40a02b
+interval=60
+signal=9
+
+[get-public-ip]
+label=  
+command=~/.config/i3blocks/ip
+color=#1e66f5
+interval=600
+signal=9
+
+[battery]
+command=~/.config/i3blocks/battery
+color=#df8e1d
+interval=30
+signal=12
+
+[calendar]
+command=clitch clock -cf '(%a) %d %h %H:%M:%S'
+color=#209fb5
+interval=persist
