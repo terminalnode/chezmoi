@@ -1,0 +1,18 @@
+set $homeLeft  'Acer Technologies KA242Y 0x0111C412'
+set $homeRight 'Acer Technologies KA242Y TJHEE0013E00'
+set $lianLg    'LG Electronics LG ULTRAFINE 202NTUWGZ526'
+
+output $homeLeft {
+  scale 1
+  mode 1920x1080@75Hz
+}
+
+output $homeRight {
+  scale 1
+  mode 1920x1080@75Hz
+}
+
+output $lianLg {
+  scale 2
+  mode 3840x2160@60Hz
+}

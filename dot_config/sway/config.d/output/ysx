@@ -1,0 +1,39 @@
+include 'home-screens'
+
+bindswitch lid:on output eDP-1 disable
+bindswitch lid:off output eDP-1 enable
+
+set $laptop    'eDP-1'
+
+output $laptop {
+  pos 1920 0
+  scale 1
+  mode 1920x1200@60Hz
+}
+output $lianLg pos 0 0
+output $homeLeft pos 1920 0
+output $homeRight pos 3840 0
+
+workspace 1  output $laptop $homeLeft $lianLg
+workspace 2  output $laptop $homeLeft $lianLg
+workspace 3  output $laptop $homeLeft $lianLg
+workspace 4  output $laptop $homeLeft $lianLg
+workspace 5  output $laptop $homeLeft $lianLg
+
+workspace 6  output $homeRight $lianLg $laptop
+workspace 7  output $homeRight $lianLg $laptop
+workspace 8  output $homeRight $lianLg $laptop
+workspace 9  output $homeRight $lianLg $laptop
+workspace 10 output $homeRight $lianLg $laptop
+
+workspace 11 output $laptop $lianLg $homeLeft
+workspace 12 output $laptop $lianLg $homeLeft
+workspace 13 output $laptop $lianLg $homeLeft
+workspace 14 output $laptop $lianLg $homeLeft
+workspace 15 output $laptop $lianLg $homeLeft
+
+workspace 16 output $lianLg $homeRight $laptop
+workspace 17 output $lianLg $homeRight $laptop
+workspace 18 output $lianLg $homeRight $laptop
+workspace 19 output $lianLg $homeRight $laptop
+workspace 20 output $lianLg $homeRight $laptop

@@ -1,0 +1,22 @@
+# hide_cursor also deactivates the cursor,
+# a longer timeout is used to allow showing tooltips and such
+seat * hide_cursor 7000
+
+input "*" {
+  # Keyboard
+  xkb_layout se(dvorak_a5),se(basic)
+  xkb_options caps:swapescape,compose:rctrl,grp:alt_caps_toggle
+
+  # Pointers
+  pointer_accel		0
+  accel_profile		flat
+  natural_scroll	enabled
+  scroll_factor		0.5
+  dwt			enabled
+  tap			enabled
+  middle_emulation	enabled
+  tap_button_map	lrm
+  scroll_method		two_finger
+  repeat_delay		280
+  repeat_rate		65
+}

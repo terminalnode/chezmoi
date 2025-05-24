@@ -1,0 +1,46 @@
+# SCREEN BACKLIGHT
+set $brighter               XF86MonBrightnessUp
+set $dimmer                 XF86MonBrightnessDown
+bindsym $brighter           exec brightnessctl set 1%+
+bindsym shift+$brighter     exec brightnessctl set 5%+
+bindsym $mod+$brighter      exec brightnessctl set 100%+
+
+bindsym $dimmer             exec brightnessctl set 1%-
+bindsym shift+$dimmer       exec brightnessctl set 5%-
+bindsym $mod+$dimmer        exec brightnessctl set 100%-
+
+# Volume keys
+# Changing volume but not letting it go over 100% is tricky with only pactl,
+# it's about half as fast as pamixer but reduces the need for external dependencies.
+set $mute                   pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $change_volume          ~/.config/sway/scripts/set_volume.sh
+set $set_volume             pactl set-sink-volume @DEFAULT_SINK@
+set $pkill_volume           pkill -RTMIN+10 i3blocks
+set $louder                 XF86AudioRaiseVolume
+set $quieter                XF86AudioLowerVolume
+set $silent                 XF86AudioMute
+bindsym $silent             exec $mute,             exec $pkill_volume
+bindsym shift+$silent       exec $mute,             exec $pkill_volume
+bindsym $mod+$silent        exec $mute,             exec $pkill_volume
+bindsym $louder             exec $change_volume +5, exec $pkill_volume
+bindsym shift+$louder       exec $change_volume +1, exec $pkill_volume
+bindsym $mod+$louder        exec $change_volume +1, exec $pkill_volume
+bindsym $MOD+$louder        exec $set_volume  100%, exec $pkill_volume
+bindsym $quieter            exec $change_volume -5, exec $pkill_volume
+bindsym shift+$quieter      exec $change_volume -1, exec $pkill_volume
+bindsym $mod+$quieter       exec $change_volume -1, exec $pkill_volume
+bindsym $MOD+$quieter       exec $set_volume    0%, exec $pkill_volume
+
+# Screenshots
+set $location               ~/screenshot.png
+set $get_output             swaymsg --pretty -t get_outputs | awk '/focused/ {print $2}'
+set $grab_screen            grim -t png -o $($get_output)
+set $grab_selection         slurp | grim -t png -g -
+bindsym shift+Print         exec $grab_screen $location
+bindsym Print               exec $grab_selection $location
+
+# Media controls
+bindsym XF86AudioPause      exec playerctl play-pause
+bindsym XF86AudioPlay       exec playerctl play
+bindsym XF86AudioNext       exec playerctl next
+bindsym XF86AudioPrev       exec playerctl previous

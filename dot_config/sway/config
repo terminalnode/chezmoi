@@ -1,0 +1,48 @@
+exec_always ~/.config/sway/scripts/lid_detect.sh
+
+# VARIABLES / SETTINGS
+set $mod           Mod4
+set $MOD           shift+$mod
+set $menu          fuzzel
+set $MENU          open-repo -ip 'fuzzel --dmenu'
+set $term          foot
+set $screenlock    swaylock-fancy || swaylock
+set $left          h
+set $down          j
+set $up            k
+set $right         l
+
+xwayland               enable
+focus_follows_mouse    no
+floating_modifier      $mod normal
+tiling_drag            disable
+
+# INPUT / OUTPUT
+include config.d/input/default
+include config.d/output/default
+include config.d/input/`hostname`
+include config.d/output/`hostname`
+
+# KEYBINDINGS
+include config.d/keybindings
+include config.d/navigation
+include config.d/mediakeys
+
+# VISUALS
+output * bg /home/alex/pics/wallpapers/current_wallpaper fill
+titlebar_padding 2 2
+font pango:SauceCodePro Nerd Font Mono 9, Bitstream Vera Sans 9, Font Awesome 9
+include config.d/window
+include config.d/theme/catppuccin-latte
+
+# ENVIRONMENT
+exec systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd \
+     DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway WAYLAND_DISPLAY
+
+exec_always --no-startup-id export XDG_CURRENT_DESKTOP=sway
+# exec_always --no-startup-id export QT_QPA_PLATFORM=wayland-egl
+# exec_always --no-startup-id export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+# exec_always --no-startup-id export QT_WAYLAND_FORCE_DIP=physical
+# exec_always --no-startup-id export CLUTTER_BACKEND=wayland

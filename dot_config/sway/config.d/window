@@ -1,0 +1,4 @@
+for_window {
+  # IntelliJ (might get other apps with splashes to work as well)
+  [title="splash"] floating enable
+}
