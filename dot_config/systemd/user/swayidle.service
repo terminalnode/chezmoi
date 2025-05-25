@@ -1,0 +1,15 @@
+[Unit]
+Description=Swayidle - Idle manager for Wayland
+Documentation=man:swayidle(1)
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env swayidle -w \
+  before-sleep    'playerctl -a pause' \
+  before-sleep    'swaylock -f -c 000000' \
+  after-resume    '%h/.config/sway/scripts/lid_detect.sh'
+  after-resume    'swaymsg "output * dpms on"'
+
+[Install]
+WantedBy=sway-session.target
