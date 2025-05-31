@@ -45,7 +45,6 @@ alias du="du -h"
 alias free="free -ht"
 alias grep="grep --color=auto"
 alias mpv="mpv --audio-display=no"
-alias sway="dbus-run-session sway"
 alias tmux="tmux -f '$XDG_CONFIG_HOME/tmux/tmux.conf'"
 
 # NETWORKING

@@ -1,0 +1,16 @@
+[Unit]
+Description=Mako - A lightweight Wayland notification daemon
+Documentation=man:mako(1)
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_CURRENT_DESKTOP=sway
+ExecStart=/usr/bin/mako
+ExecReload=/usr/bin/makoctl reload
+
+[Install]
+WantedBy=sway-session.target

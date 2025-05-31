@@ -36,11 +36,11 @@ include config.d/window
 include config.d/theme/catppuccin-latte
 
 # ENVIRONMENT
-exec systemctl --user start sway-session.target
 exec systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd \
      DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway WAYLAND_DISPLAY
+exec systemctl --user start sway-session.target
 
 # AUTO START
 exec_always --no-startup-id jetbrains-toolbox
