@@ -1,0 +1,16 @@
+[Unit]
+Description=Jetbrains Toolbox - Auto-update utility for Jetbrains utilities
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=forking
+Environment=DISPLAY=:0
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_CURRENT_DESKTOP=sway
+ExecStart=/usr/bin/jetbrains-toolbox --minimize
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=sway-session.target

@@ -43,5 +43,4 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 exec systemctl --user start sway-session.target
 
 # AUTO START
-exec_always --no-startup-id jetbrains-toolbox
 exec_always --no-startup-id fcitx5
