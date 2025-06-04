@@ -2,7 +2,7 @@ default_border      pixel 3
 titlebar_border_thickness 2
 titlebar_padding 3
 smart_borders       on
-seat * xcursor_theme catppuccin-latte-dark-cursors 41
+seat * xcursor_theme catppuccin-latte-light-cursors 38
 
 set $rosewater #dc8a78
 set $flamingo #dd7878
