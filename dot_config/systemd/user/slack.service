@@ -8,6 +8,7 @@ Type=simple
 Environment=DISPLAY=:0
 Environment=WAYLAND_DISPLAY=wayland-1
 Environment=XDG_CURRENT_DESKTOP=sway
+ExecStartPre=/usr/bin/python3 -c "import sys, datetime; now = datetime.datetime.now(); sys.exit(0) if 1 <= now.isoweekday() <= 5 and 7 <= now.hour < 16 else sys.exit(1)"
 ExecStart=/usr/bin/slack -u
 Restart=on-failure
 RestartSec=5s
