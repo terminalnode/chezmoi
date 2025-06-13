@@ -8,6 +8,8 @@ alias e="exa"
 alias el="exa -l"
 alias e1="exa -1"
 
+alias mv="mv -i"
+
 # LAPTOP BRIGHTNESS
 alias brightness-max="echo 255 | sudo tee /sys/class/backlight/amdgpu_bl1/brightness"
 alias brightness-mid="echo 180 | sudo tee /sys/class/backlight/amdgpu_bl1/brightness"
@@ -15,15 +17,16 @@ alias brightness-low="echo 100 | sudo tee /sys/class/backlight/amdgpu_bl1/bright
 alias brightness-min="echo 1 | sudo tee /sys/class/backlight/amdgpu_bl1/brightness"
 
 # SHORTCUTS
+alias cm="chezmoi"
 alias dcdu="docker-compose down; docker-compose up"
+alias k="kubectl"
 alias ncp="ncpamixer"
 alias tf="terraform"
 alias tf-fmt="terraform fmt -recursive ."
-alias ytdl="yt-dlp"
 alias pldl="yt-dlp -o '~/video/ytdl/%(uploader)s_%(playlist)s/%(playlist_index)s_%(title)s.%(ext)s'"
-alias svtdl="svtplay-dl"
 alias q="exit"
-alias cm="chezmoi"
+alias svtdl="svtplay-dl"
+alias ytdl="yt-dlp"
 
 # GIT
 alias gits="git status"
@@ -48,10 +51,13 @@ alias mpv="mpv --audio-display=no"
 alias tmux="tmux -f '$XDG_CONFIG_HOME/tmux/tmux.conf'"
 
 # NETWORKING
+pdns_url="archlinux.org"
+alias p1="ping -c 3 1.1.1.1"
+alias p8="ping -c 3 8.8.8.8"
 alias p9="ping -c 3 9.9.9.9"
-alias pdns="ping -c3 archlinux.org"
-alias pdns4="ping -4 -c3 archlinux.org"
-alias pdns6="ping -6 -c3 archlinux.org"
+alias pdns="ping -c3 $pdns_url"
+alias pdns4="ping -4 -c3 $pdns_url"
+alias pdns6="ping -6 -c3 $pdns_url"
 alias publicip="curl ifconfig.me"
 
 # COOL STUFF
