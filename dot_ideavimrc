@@ -1,0 +1,11 @@
+set relativenumber
+set number
+set surround
+set highlightedyank
+set showmode
+set ideajoin
+
+sethandler <C-L> a:ide " Next tab
+sethandler <C-H> a:ide " Previous tab
+sethandler <C-T> a:ide " Toggle terminal
+sethandler <C-N> a:ide " Open the multi search thing
