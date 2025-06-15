@@ -1,0 +1,14 @@
+# Only display filename in window title
+set window-title-basename   true
+set window-title-home-tilde false
+
+# Display path to file in statusbar
+set statusbar-basename      false
+set statusbar-home-tilde    true
+
+# Use sqlite database
+set database                sqlite
+
+# Don't quit when q is pressed, it's annoying.
+# Make it do something useful instead.
+map q recolor
