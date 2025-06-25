@@ -50,6 +50,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  install = { colorscheme = { "catppuccin-latte", "delek" } },
   spec = {
     { import = "plugins" },
     { "terminalnode/vim-zenkaku", event = "VeryLazy" },
@@ -57,8 +58,9 @@ require("lazy").setup({
     { "echasnovski/mini.icons" },      -- More fancy icons
     { "MunifTanjim/nui.nvim" },        -- UI components library
     { "nvim-lua/plenary.nvim" },       -- Lua functions library
-    { "nvim-telescope/telescope-fzf-native.nvim" },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     { "BurntSushi/ripgrep" },
+    { "mason-org/mason.nvim", opts = {} },
   },
   checker = { enabled = true },
 })
