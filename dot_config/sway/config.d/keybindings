@@ -9,6 +9,7 @@ bindsym --to-code $MOD+c           reload
 bindsym --to-code $mod+v           split toggle
 bindsym --to-code $mod+t           layout toggle tabbed split
 bindsym           $mod+Return      exec $term
+bindsym           $MOD+Return      exec $TERM
 bindsym           $mod+Tab         workspace back_and_forth
 bindsym           $MOD+Tab         workspace next_on_output
 bindsym           $mod+Space       exec $menu
