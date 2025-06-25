@@ -40,6 +40,10 @@ alias gitr="git rebase"
 alias gco="git checkout"
 alias git-message="git show -s --format=%B" # followed by commit hash/HEAD
 
+# Make it long and clear, but easily auto-completable
+# Beats typing out the whole thing :-)
+alias gitp-force="git push --force-with-lease"
+
 # ADD OPTIONS
 # Commands replaced with themselves + various options.
 alias df="df -h"
