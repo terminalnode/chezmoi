@@ -11,6 +11,7 @@ return {
         integrations = {
           blink_cmp = true,
           mason = true,
+          noice = true,
           nvim_surround = true,
           snacks = true,
           telescope = { enabled = true },
