@@ -50,7 +50,7 @@ return {
         desc = "Find nvim config files with Telescope",
       },
       {
-        "<C-b>",
+        "<leader>tb",
         function()
           builtin().buffers()
         end,
