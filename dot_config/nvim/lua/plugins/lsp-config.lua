@@ -40,6 +40,7 @@ return {
         lua_ls = { silent = true },
         rust_analyzer = { silent = false },
         clangd = { silent = false },
+        gopls = { silent = false },
 
         hls = {
           silent = false,
