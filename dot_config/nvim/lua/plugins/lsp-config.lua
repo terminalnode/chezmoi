@@ -41,6 +41,7 @@ return {
         rust_analyzer = { silent = false },
         clangd = { silent = false },
         gopls = { silent = false },
+        terraformls = { silent = false },
 
         hls = {
           silent = false,
