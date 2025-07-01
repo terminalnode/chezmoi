@@ -7,14 +7,16 @@ return {
       vim.cmd([[colorscheme catppuccin-latte]])
       require("catppuccin").setup({
         flavour = "latte",
-        dim_inactive = { enabled = false },
+        dim_inactive = { enabled = true },
         integrations = {
-          blink_cmp = true,
+          blink_cmp = { style = "bordered" },
           mason = true,
+          mini = { enabled = true },
           noice = true,
           nvim_surround = true,
           snacks = true,
           telescope = { enabled = true },
+          treesitter = true,
         },
       })
     end,
