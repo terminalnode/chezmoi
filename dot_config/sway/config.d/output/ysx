@@ -3,13 +3,28 @@ include 'home-screens'
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 
-set $laptop    'eDP-1'
+set $laptop     'eDP-1'
+set $shortcutLg 'LG Electronics LG UltraFine 901NTFAB6515'
 
 output $laptop {
   pos 1920 0
   scale 1
   mode 1920x1200@60Hz
 }
+
+# Position it so the laptop is in the middle underneat it.
+# Remove laptop from screen width: 3840 - 1920 = 1920
+# Divide remaining space by two to get length of each side: 960
+# Subtract this value from the laptop X offset: 1920 - 960 = 960
+#
+# For Y, just subtract the height of the screen. Counterintuitively,
+# the Y value moves it down not up.
+output $shortcutLg {
+  pos 960 -2160
+  scale 1
+  mode 3840x2160@60Hz
+}
+
 output $lianLg pos 0 0
 output $homeLeft pos 1920 0
 output $homeRight pos 3840 0
@@ -20,11 +35,11 @@ workspace 3  output $laptop $homeLeft $lianLg
 workspace 4  output $laptop $homeLeft $lianLg
 workspace 5  output $laptop $homeLeft $lianLg
 
-workspace 6  output $homeRight $lianLg $laptop
-workspace 7  output $homeRight $lianLg $laptop
-workspace 8  output $homeRight $lianLg $laptop
-workspace 9  output $homeRight $lianLg $laptop
-workspace 10 output $homeRight $lianLg $laptop
+workspace 6  output $shortcutLg $homeRight $lianLg $laptop
+workspace 7  output $shortcutLg $homeRight $lianLg $laptop
+workspace 8  output $shortcutLg $homeRight $lianLg $laptop
+workspace 9  output $shortcutLg $homeRight $lianLg $laptop
+workspace 10 output $shortcutLg $homeRight $lianLg $laptop
 
 workspace 11 output $laptop $lianLg $homeLeft
 workspace 12 output $laptop $lianLg $homeLeft
@@ -32,8 +47,8 @@ workspace 13 output $laptop $lianLg $homeLeft
 workspace 14 output $laptop $lianLg $homeLeft
 workspace 15 output $laptop $lianLg $homeLeft
 
-workspace 16 output $lianLg $homeRight $laptop
-workspace 17 output $lianLg $homeRight $laptop
-workspace 18 output $lianLg $homeRight $laptop
-workspace 19 output $lianLg $homeRight $laptop
-workspace 20 output $lianLg $homeRight $laptop
+workspace 16 output $shortcutLg $lianLg $homeRight $laptop
+workspace 17 output $shortcutLg $lianLg $homeRight $laptop
+workspace 18 output $shortcutLg $lianLg $homeRight $laptop
+workspace 19 output $shortcutLg $lianLg $homeRight $laptop
+workspace 20 output $shortcutLg $lianLg $homeRight $laptop
