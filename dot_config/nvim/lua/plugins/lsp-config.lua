@@ -1,8 +1,5 @@
 local function lsp_keymap(bufnr)
-	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
-	-- [d and ]d are default in Neovim nowadays, keeping them commented out
-	-- as a kind of documentation.
+	local bufopts = { noremap = true, silent = true, buffer = bufnr } -- [d and ]d are default in Neovim nowadays, keeping them commented out as a kind of documentation.
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float, bufopts)
 	-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
 	-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
@@ -11,16 +8,6 @@ local function lsp_keymap(bufnr)
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "<leader>K", vim.lsp.buf.document_highlight, bufopts)
-
-	-- This will highlight all instances of something whenever the cursor moves
-	-- over it. For example all references to a specific variable.
-	vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-		pattern = { "*" },
-		callback = function()
-			vim.lsp.buf.clear_references()
-			vim.lsp.buf.document_highlight()
-		end,
-	})
 end
 
 return {
@@ -94,6 +81,21 @@ return {
 				config.capabilities = blink.get_lsp_capabilities(config.capabilities)
 				config.on_attach = function(_, bufnr)
 					lsp_keymap(bufnr)
+
+					local clients = vim.lsp.get_clients({ bufnr = bufnr })
+					for _, client in pairs(clients) do
+						if client.server_capabilities.documentHighlightProvider then
+							-- This will highlight all instances of something whenever the cursor moves
+							-- over it. For example all references to a specific variable.
+							vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+								pattern = { "*" },
+								callback = function()
+									vim.lsp.buf.clear_references()
+									vim.lsp.buf.document_highlight()
+								end,
+							})
+						end
+					end
 				end
 				c[server].setup(config)
 			end
