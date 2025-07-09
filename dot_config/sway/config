@@ -5,8 +5,8 @@ set $mod           Mod4
 set $MOD           shift+$mod
 set $menu          fuzzel
 set $MENU          open-repo -ip 'fuzzel --dmenu'
-set $term          ghostty -e tmux
-set $TERM          ghostty
+set $term          foot zellij
+set $TERM          foot
 set $screenlock    swaylock-fancy || swaylock
 set $left          h
 set $down          j
