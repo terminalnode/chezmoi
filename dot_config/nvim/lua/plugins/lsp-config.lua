@@ -1,6 +1,8 @@
 local function lsp_keymap(bufnr)
-	local bufopts = { noremap = true, silent = true, buffer = bufnr } -- [d and ]d are default in Neovim nowadays, keeping them commented out as a kind of documentation.
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float, bufopts)
+
+	-- [d and ]d are default in Neovim nowadays, keeping them commented out as a kind of documentation.
 	-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)
 	-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)
 

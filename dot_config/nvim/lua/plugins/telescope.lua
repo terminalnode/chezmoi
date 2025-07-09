@@ -7,9 +7,6 @@ end
 local function actions()
 	return require("telescope.actions")
 end
-local function confdir()
-	return vim.fn.stdpath("config")
-end
 
 return {
 	{
@@ -29,14 +26,7 @@ return {
 				desc = "Find files with Telescope",
 			},
 			{
-				"<leader>tj",
-				function()
-					builtin().jumplist()
-				end,
-				desc = "Find neat spots to revisit",
-			},
-			{
-				"<leader>tr",
+				"<leader>trg",
 				function()
 					builtin().live_grep()
 				end,
@@ -48,13 +38,6 @@ return {
 					builtin().help_tags()
 				end,
 				desc = "Find help tags with Telescope",
-			},
-			{
-				"<leader>tc",
-				function()
-					builtin().find_files({ cwd = confdir(), hidden = true })
-				end,
-				desc = "Find nvim config files with Telescope",
 			},
 			{
 				"<leader>tb",
@@ -76,13 +59,6 @@ return {
 					builtin().git_branches()
 				end,
 				desc = "View git branches with Telescope",
-			},
-			{
-				"<leader>tgbc",
-				function()
-					builtin().git_bcommits()
-				end,
-				desc = "View git commits for current buffer with Telescope",
 			},
 			{
 				"<leader>tgbc",
@@ -125,6 +101,20 @@ return {
 					builtin().lsp_implementations()
 				end,
 				desc = "View LSP implementations with Telescope",
+			},
+			{
+				"<leader>tcs",
+				function()
+					builtin().lsp_document_symbols()
+				end,
+				desc = "View LSP document symbols with Telescope",
+			},
+			{
+				"<leader>tcc",
+				function()
+					builtin().resume()
+				end,
+				desc = "Continue your previous telescope search",
 			},
 		},
 		config = function()
