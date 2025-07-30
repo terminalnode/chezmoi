@@ -3,10 +3,10 @@ alias ls="ls -Fh --group-directories-first --color"
 alias ll="ls -l"
 alias l1="ls -1"
 
-alias exa="exa --group-directories-first --git --time-style long-iso"
-alias e="exa"
-alias el="exa -l"
-alias e1="exa -1"
+alias eza="eza --group-directories-first --git --time-style long-iso"
+alias e="eza"
+alias el="eza -l"
+alias e1="eza -1"
 
 alias mv="mv -i"
 
