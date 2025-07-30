@@ -18,6 +18,7 @@ alias brightness-min="echo 1 | sudo tee /sys/class/backlight/amdgpu_bl1/brightne
 
 # SHORTCUTS
 alias cm="chezmoi"
+alias d="docker"
 alias dcdu="docker-compose down; docker-compose up"
 alias k="kubectl"
 alias ncp="ncpamixer"
