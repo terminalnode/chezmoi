@@ -10,10 +10,10 @@ return {
 
 				-- Various flavours of JavaScript
 				-- ts_ls formatting is disabled, so in practice this will use the eslint LSP for formatting
-				javascript = {},
-				javascriptreact = {},
-				typescript = {},
-				typescriptreact = {},
+				javascript = { "eslint_d" },
+				javascriptreact = { "eslint_d" },
+				typescript = { "eslint_d" },
+				typescriptreact = { "eslint_d" },
 			},
 			default_format_opts = {
 				lsp_format = "fallback",

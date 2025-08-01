@@ -122,6 +122,11 @@ return {
 				pickers = {
 					find_files = {
 						theme = "ivy",
+						file_ignore_patterns = { "node_modules" },
+					},
+
+					live_grep = {
+						glob_pattern = { "!package-lock.json", "!node_modules/" },
 					},
 
 					help_tags = {

@@ -36,6 +36,7 @@ return {
 				rust_analyzer = { silent = false },
 				clangd = { silent = false },
 				gopls = { silent = false },
+				golangci_lint_ls = { silent = false },
 				terraformls = { silent = false },
 				pyright = { silent = false },
 
@@ -46,8 +47,17 @@ return {
 
 				css_variables = { silent = true },
 				tailwindcss = { silent = true },
-				eslint = { silent = true },
 				prismals = { silent = false },
+
+				eslint = {
+					silent = false,
+					settings = {
+						workingDirectories = {
+							{ mode = "auto" },
+						},
+					},
+				},
+
 				ts_ls = {
 					silent = false,
 					capabilities = {
